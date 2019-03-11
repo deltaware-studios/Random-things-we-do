@@ -1,0 +1,39 @@
+class player:
+
+    def __init__(self, pseudo, life, dammage):
+        self.nick = pseudo
+        self.lf = life
+        self.dm = dammage
+
+    def sp(self):
+        print(" ")
+
+    def info(self,):
+        print("Le joueur ", self.nick, " a ", self.lf, " points de vie restants.")
+        self.sp()
+
+    def attinfo(self,):
+        print(self.nick, " ferait ", self.dm, " dégâts si il attaquait.")
+        self.sp()
+
+    def potion(self, effect, intensity):
+        self.pot = effect
+        self.it = intensity
+        if self.pot == "dammage":
+            self.dm += self.it
+            print(self.nick, " a bu une potion d'attaque augmentant ses dégâts de ", self.it, " points.")
+        elif self.pot == "heal":
+            self.lf += self.it
+            print(self.nick, " a bu une potion de soin redonnant ", self.it, " points de vie.")
+        self.sp()
+
+
+j_1 = player("Sorenn", 20, 3)
+j_2 = player("Sacha", 20, 3)
+j_1.info()
+j_2.info()
+j_1.attinfo()
+j_1.potion("dammage", 3)
+j_1.attinfo()
+j_2.potion("heal", 5)
+j_2.info()
